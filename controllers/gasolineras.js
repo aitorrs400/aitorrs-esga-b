@@ -48,7 +48,7 @@ export const gasolinerasIDGet = async (req = request, res = response) => {
 export const gasolinerasPost = async (req = request, res = response) => {
 
     // Obtenemos los datos de la gasolinera
-    const { nombre, direccion, numero, localidad, cp, provincia, pais, coordenadas } = req.body;
+    const { nombre, direccion, numero, localidad, cp, provincia, pais } = req.body;
 
     // Creamos una nueva instancia de Gasolinera con los datos del cuerpo de la petición
     const gasolinera = new Gasolinera({
@@ -58,8 +58,7 @@ export const gasolinerasPost = async (req = request, res = response) => {
       localidad,
       cp,
       provincia,
-      pais,
-      coordenadas
+      pais
     });
 
     // Guardamos la nueva gasolinera en la base de datos
@@ -76,10 +75,10 @@ export const gasolinerasPut = async (req = request, res = response) => {
     const { id } = req.params;
 
     // Obtenemos los datos de la gasolinera
-    const { nombre, direccion, numero, localidad, cp, provincia, pais, coordenadas } = req.body;
+    const { nombre, direccion, numero, localidad, cp, provincia, pais } = req.body;
 
     // Actualizamos el registro
-    const gasolinera = await Gasolinera.findByIdAndUpdate( id, { nombre, direccion, numero, localidad, cp, provincia, pais, coordenadas });
+    const gasolinera = await Gasolinera.findByIdAndUpdate( id, { nombre, direccion, numero, localidad, cp, provincia, pais });
 
     // Devolvemos la gasolinera conforme se ha creado
     res.status(201).json({ mensaje: 'Actualizado correctamente', data: gasolinera });

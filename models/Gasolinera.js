@@ -29,10 +29,6 @@ const GasolineraSchema = new Schema({
     pais: {
         type: String,
         required: [true, 'El país de la gasolinera es obligatorio']
-    },
-    coordenadas: {
-        type: Schema.Types.Mixed,
-        required: [true, 'Las coordenadas de la gasolinera son obligatorias']
     }
 });
 
