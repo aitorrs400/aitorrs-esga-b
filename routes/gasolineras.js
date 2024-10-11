@@ -21,7 +21,6 @@ router.post('/', [
     check('cp', 'El código postal de la gasolinera es obligatorio').not().isEmpty(),
     check('provincia', 'La provincia de la gasolinera es obligatoria').not().isEmpty(),
     check('pais', 'El país de la gasolinera es obligatorio').not().isEmpty(),
-    check('coordenadas', 'Las coordenadas de la gasolinera son obligatorias').not().isEmpty(),
     validarCampos
 ], gasolinerasPost);
 
